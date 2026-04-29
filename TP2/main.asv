@@ -1,0 +1,20 @@
+clear
+%
+message="Choix question";
+choix = menu()
+question=2;
+%
+% frequence d'echantillonnage
+nu_e=10^3; % 10 kHz      (rappel : T_e = 1 / nu_e)
+%
+% nombre d'echantillons
+N=10^4; % sans dimension (rappel duree d'acquisition : T = N * T_e)
+%
+lance_TP
+%
+% Consigne 1 : pour analyser les graphiques, pensez à utiliser la fonction
+% zoom et à bien regarder les axes.
+%
+% Consigne 2 : regardez vos notes de cours ainsi que l'exercice 5 de la
+% section 3.1 du polycopie.
+%
