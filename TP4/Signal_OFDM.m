@@ -71,15 +71,20 @@ plot(t,Z1);
 title("Signal Z(t)");
 
 figure(4)
-v = fft(Z1);
+v = fft(M);
 plot(real(v), imag(v), "*");
 figure(5)
 stem(abs(v));
 title("DSP d'un symbole");
 
 % Question 3
-
 Zm = signalOFDM(f1,Nk,Nt, A, B, Nb_symbole);
+
+
+% Question 4
+d=4;
+Zm_cp = signal_CP_OFDM(Zm, Nt, d);
+
 
 function M = symboleM(f1,Nk,Nt,A,B)
 
@@ -102,5 +107,10 @@ function Zm = signalOFDM(f1,Nk,Nt, A, B, Nb_symbole)
     for i = 1:Nb_symbole
         Zm(:,i) = symboleM(f1,Nk,Nt,A(:,i),B(:,i));
     end
+
+end 
+
+function Zm_cp = signal_CP_OFDM(Zm, Nt, d)
+    Zm_cp = [ Zm(end-(Nt/d)+1:end,:) ; Zm ];
 
 end 
